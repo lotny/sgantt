@@ -1,0 +1,44 @@
+body {
+    font-family: Verdana, Geneva, sans-serif; 
+    
+            }
+.row {
+    border-width:0 0 2px 0;
+    border-style:solid;
+    display:flex;
+    flex-grow: 1;
+    height:50px;
+}
+.row-title {
+    width: 100px;
+    display: flex;
+    background-color:lightblue;
+    height: 100%;
+    
+}
+.row-body {
+    display: flex;
+    flex-grow:1;
+    background-color:white;
+    flex-direction: column;
+}
+
+.row-activity {
+    border-radius: 4px;
+    color:white;
+    margin-top: 4px;
+    /*display:flex;*/
+    background-color: teal;
+    cursor:pointer;
+
+}
+.timeline {
+    height: 50px;
+    background-color:lightgrey;
+}
+.time-cell {
+    border-style:solid;
+    border-color:black;
+    border-width:0 1px 0 0
+}
+

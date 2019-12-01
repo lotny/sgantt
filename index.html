@@ -1,0 +1,71 @@
+<head>
+    <title>test</title>
+    <script type="text/javascript" src="simple_gantt.js"></script>
+    <link rel="stylesheet" href="simple_gantt.css"></ref>
+</head>
+<body>
+    
+    <style>
+       
+    </style>
+   
+
+    <div>
+        
+        <div class="left-panel" style="position:fixed;">
+            <div style="height:50px; background-color:lightgrey">fill</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 1</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 2</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 3</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 4</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 5</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 6</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 7</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 8</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 9</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 10</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 11</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 12</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 13</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 14</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 15</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 16</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 17</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 19</div>
+            <div style="height:50px; background-color:lightskyblue">Resource 20</div>
+        </div>
+        <div style="height:50px; background-color:lightskyblue">Resource 18</div>
+        <div class="panel-right" style="overflow:hidden">
+            <div style="display:flex"class="timeline">
+                    
+                    
+                </div>
+            
+        </div>
+        
+    </div>
+
+    
+
+    <script lang="javascript">
+        
+            for (var x = 0; x < 20; x++){
+                var activityNode = drawGanttRow();
+                document.getElementsByClassName("panel-right")[0].appendChild(activityNode);
+            }
+
+            drawTimeLine();
+
+            var elements = document.getElementsByClassName("row-activity");
+            for (var x = 0; x < elements.length; x++){
+                elements[x].addEventListener("click", displayDetails);
+            }
+    
+            function displayDetails(ev){
+                console.log(ev.target.dataset.name);
+            }
+            
+    </script>
+    
+    
+<body>
