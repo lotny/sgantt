@@ -1,7 +1,7 @@
 body {
     font-family: Verdana, Geneva, sans-serif; 
-    
-            }
+    margin:0; 
+     }
 .row {
     border-width:0 0 2px 0;
     border-style:solid;
@@ -21,6 +21,11 @@ body {
     flex-grow:1;
     background-color:white;
     flex-direction: column;
+}
+
+.row-resource {
+    background-color:lightskyblue;
+    width:100px;
 }
 
 .row-activity {
