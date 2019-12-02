@@ -24,8 +24,9 @@ body {
 }
 
 .row-resource {
-    background-color:lightskyblue;
-    width:100px;
+    background-color:#1ecbe1;
+    color:#fff;
+    width:150px;
 }
 
 .row-activity {

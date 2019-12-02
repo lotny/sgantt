@@ -43,23 +43,38 @@ var chart = (function(){
 
     drawResources = function(){
         for (var x = 0; x < chartData.length; x++){
-            drawResource(chartData[x].name, chartData[x].length);
+            drawSingleResource(chartData[x].name, chartData[x].activities.length);
         }
 
     }
 
-    drawResource = function(name, numberOfActivities){
+    drawSingleResource = function(name, numberOfActivities){
         
         var cell = document.createElement("div");
-        cell.setAttribute("style", "heigth:" + numberOfActivities * 30 + "px;");
+        cell.setAttribute("style", "height:" + (numberOfActivities + 1 )* 30 + "px;");
         cell.setAttribute("class", "row-resource");
         cell.innerText = name;
         document.getElementsByClassName("panel-left")[0].appendChild(cell);
     }
 
-    drawActivities = function(){
+    drawActivities = function(activities){
+        for (var x = 0; x < activities.length; x++){
+            
+        }
+    }
 
-        //for (var x = 0; x < )
+    drawSingleActivity = function(activity){
+        var activityEl = document.createElement("div");
+        let rowTime = new Date(startDate.getTime() + timeInCell * Math.floor(Math.random() * 100))
+
+        var margin = rowTime.getHours() * cellWidth;
+
+        //var margin = Math.floor((Math.random() * 1000) + 1);
+        var width  = Math.floor((Math.random() * 100) + 100 );
+        var activity = document.createElement("div");
+        activity.setAttribute("style", "width:" + width + "px;margin-left:" + margin);
+        activity.setAttribute("class", "row-activity");
+        activity.innerText = "activity";
     }
 
 
