@@ -106,12 +106,12 @@ chartData =
         activities : [
             {
             id: "1",
-            name: "one hour activity",
+            name: "1 h ",
             actualStart: new Date("December 1, 2019 15:00:00"),
             actualEnd: new Date("December 1, 2019 16:00:00"),
         },{
             id: "2",
-            name: "two hour activity",
+            name: "2 h ",
             actualStart: new Date("December 1, 2019 16:30:00"),
             actualEnd: new Date("December 1, 2019 18:30:00"),
         }
