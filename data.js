@@ -8,12 +8,12 @@ chartData =
             id: "1",
             name: "first activity",
             actualStart: new Date("December 1, 2019 12:00:00"),
-            actualEnd: Date.UTC(2019,12,3)
+            actualEnd:  new Date("December 1, 2019 13:00:00"),
         },{
             id: "2",
             name: "second activity",
             actualStart: new Date("December 1, 2019 16:00:00"),
-            actualEnd: Date.UTC(2019,12,3)
+            actualEnd: new Date("December 1, 2019 17:00:00"),
         }
         ]
     },
@@ -24,12 +24,12 @@ chartData =
             id: "activity2a",
             name: "first activity",
             actualStart: new Date("December 2, 2019 00:00:00"),
-            actualEnd: Date.UTC(2019,12,1,16)
+            actualEnd: new Date("December 2, 2019 01:00:00"),
         },{
             id: "activity2b",
             name: "second activity",
-            actualStart: Date.UTC(2019,12,16,30),
-            actualEnd: Date.UTC(2019,12,21)
+            actualStart: new Date("December 1, 2019 13:00:00"),
+            actualEnd: new Date("December 1, 2019 14:00:00"),
         }
         ]
     },
@@ -106,15 +106,55 @@ chartData =
         activities : [
             {
             id: "1",
-            name: "first activity",
-            actualStart: new Date("December 1, 2019 12:00:00"),
-            actualEnd: Date.UTC(2019,12,3)
+            name: "one hour activity",
+            actualStart: new Date("December 1, 2019 15:00:00"),
+            actualEnd: new Date("December 1, 2019 16:00:00"),
         },{
             id: "2",
-            name: "second activity",
-            actualStart: new Date("December 1, 2019 16:00:00"),
-            actualEnd: Date.UTC(2019,12,3)
+            name: "two hour activity",
+            actualStart: new Date("December 1, 2019 16:30:00"),
+            actualEnd: new Date("December 1, 2019 18:30:00"),
         }
         ]
+    },
+    {
+        name: "Resource 21",
+        activities : []
+    },
+    {
+        name: "Resource 22",
+        activities : []
+    },
+    {
+        name: "Resource 23",
+        activities : []
+    },
+    {
+        name: "Resource 24",
+        activities : []
+    },
+    {
+        name: "Resource 25",
+        activities : []
+    },
+    {
+        name: "Resource 26",
+        activities : []
+    },
+    {
+        name: "Resource 27",
+        activities : []
+    },
+    {
+        name: "Resource 28",
+        activities : []
+    },
+    {
+        name: "Resource 29",
+        activities : []
+    },
+    {    
+        name: "Resource 30",
+        activities : []
     },
 ];
