@@ -26,17 +26,18 @@ body {
 }
 
 .row-resource {
-    background-color:#00B8DE;
+    background-color:#0087A3;
     color:#FFF;
     width:150px;
 }
 
 .row-activity {
     border-radius: 4px;
-    color:white;
+    
     margin-top: 4px;
     /*display:flex;*/
-    background-color: teal;
+    background-color: #000;
+    color:#FFF;
     cursor:pointer;
 
 }

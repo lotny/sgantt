@@ -6,12 +6,12 @@ chartData =
         activities : [
             {
             id: "1",
-            name: "first activity",
+            name: "1h",
             actualStart: new Date("December 1, 2019 12:00:00"),
             actualEnd:  new Date("December 1, 2019 13:00:00"),
         },{
             id: "2",
-            name: "second activity",
+            name: "2h",
             actualStart: new Date("December 1, 2019 16:00:00"),
             actualEnd: new Date("December 1, 2019 17:00:00"),
         }
@@ -22,12 +22,12 @@ chartData =
         activities : [
             {
             id: "activity2a",
-            name: "first activity",
+            name: "1h",
             actualStart: new Date("December 2, 2019 00:00:00"),
             actualEnd: new Date("December 2, 2019 01:00:00"),
         },{
             id: "activity2b",
-            name: "second activity",
+            name: "1h",
             actualStart: new Date("December 1, 2019 13:00:00"),
             actualEnd: new Date("December 1, 2019 14:00:00"),
         }
