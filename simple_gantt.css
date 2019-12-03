@@ -26,8 +26,8 @@ body {
 }
 
 .row-resource {
-    background-color:#1ecbe1;
-    color:#fff;
+    background-color:#00B8DE;
+    color:#FFF;
     width:150px;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 .timeline {
     height: 50px;
-    background-color:lightgrey;
+    background-color:#B4B6BA;
 }
 .time-cell {
     border-style:solid;
