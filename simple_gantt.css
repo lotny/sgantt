@@ -49,10 +49,31 @@ body {
     z-index:5;
     height: 50px;
     background-color:#B4B6BA;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    
 }
-.time-cell {
+.timeline-top {
+    z-index:5;
+    height:50px;
+  
+    background-color:lightgrey;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+.time-cell, .time-cell-top {
+    display:inline-block;
     border-style:solid;
     border-color:black;
-    border-width:0 1px 0 0
+    border-width:0 1px 0 0;
+    height:50px;
+}
+
+.time-cell-top {
+    height: 50px;
+    text-align: center;
+    text-align:middle;
+    background-color: lightgrey;
 }
 

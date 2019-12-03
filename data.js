@@ -114,6 +114,16 @@ chartData =
             name: "2 h ",
             actualStart: new Date("December 1, 2019 16:30:00"),
             actualEnd: new Date("December 1, 2019 18:30:00"),
+        },{
+            id: "3",
+            name: "4 h ",
+            actualStart: new Date("December 1, 2019 16:30:00"),
+            actualEnd: new Date("December 1, 2019 20:30:00"),
+        },{
+            id: "3",
+            name: "12 h ",
+            actualStart: new Date("December 1, 2019 16:30:00"),
+            actualEnd: new Date("December 2, 2019 16:30:00"),
         }
         ]
     },

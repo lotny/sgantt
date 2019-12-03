@@ -32,6 +32,8 @@ var chart = (function(){
         //destroyActivities();
         destroyTimeLine();
         drawTimeLine();
+        destroyResources();
+        drawResources();
     }
 
     get = function(){
@@ -64,15 +66,24 @@ var chart = (function(){
         // time of the first cell
         let cellTime = sDate; //new Date("December 1, 2019, 12:30:00");
 
-
-
         for (var x = 0; x < steps; x++)
         {
             let hours = ("0" + cellTime.getHours()).slice(-2);
             let minutes = ("0" + cellTime.getMinutes()).slice(-2);
             drawTimeCell(hours + ":" + minutes);
+            if (x % 2 == 0){
+                drawParentTimeCell();
+            }
             cellTime = new Date(cellTime.getTime() + timeInCell);
         }
+
+    }
+
+    destroyResources = function(){
+        var activitiesNode = document.getElementsByClassName("activities")[0];
+        activitiesNode.innerHTML = "";
+        var panelLeftNode = document.getElementsByClassName("panel-left")[0];
+        panelLeftNode.innerHTML = "";
 
     }
 
@@ -106,6 +117,8 @@ var chart = (function(){
     destroyTimeLine = function(){
         var timeline = document.getElementsByClassName("timeline")[0];
         timeline.innerHTML = "";
+        var parentTimeline = document.getElementsByClassName("timeline-top")[0];
+        parentTimeline.innerHTML = "";
     }
 
     drawActivities = function(activities){
@@ -120,7 +133,18 @@ var chart = (function(){
         var actEnd = new Date(activity.actualEnd);
         var margin =  leftMargin + (1 + actStart.getHours() - startDate.getHours()) * cellWidth;
 
-        var width  = cellWidth * (actEnd.getHours() - actStart.getHours()); 
+        var width = 1;
+        if ( timeInCell == 432e5){
+            width  =  cellWidth * (actEnd.getDate() - actStart.getDate());
+        
+        } else {
+
+            width  = cellWidth * new Date(actEnd - actStart).getHours(); 
+        }
+        if (width < 1){
+            width = 2;
+        } 
+      
         activityEl.setAttribute("style", "width:" + width + "px;margin-left:" + margin);
         activityEl.setAttribute("class", "row-activity");
         activityEl.innerText = activity.name;
@@ -129,10 +153,27 @@ var chart = (function(){
     }
 
 
+    drawParentTimeCell = function(){
+        
+        let innerText = "";
+        if (timeInCell == 18e5){
+            innerText = "hour";
+        } else {
+            innerText = "day";
+        }
+
+        let width = (cellWidth * 2) - 1;
+        var cell = document.createElement("div");
+        cell.setAttribute("style", "width:" + width);
+        cell.setAttribute("class", "time-cell-top");
+        cell.innerText = innerText;
+        document.getElementsByClassName("timeline-top")[0].appendChild(cell);
+    }
+
     drawTimeCell = function(timeText){
         let width = 59;
         var cell = document.createElement("div");
-        cell.setAttribute("style", "width:" + width);
+        cell.setAttribute("style", "width:" + width + "px");
         cell.setAttribute("class", "time-cell");
         cell.innerText = timeText;
         document.getElementsByClassName("timeline")[0].appendChild(cell);
