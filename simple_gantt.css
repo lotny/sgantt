@@ -41,7 +41,12 @@ body {
     cursor:pointer;
 
 }
+.activities {
+    z-index:1;
+}
+
 .timeline {
+    z-index:5;
     height: 50px;
     background-color:#B4B6BA;
 }

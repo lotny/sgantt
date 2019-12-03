@@ -14,11 +14,18 @@
 
     <div>
         
-        <div class="panel-left" width="150px" style="top:50px;position:absolute"></div>
+        <div class="panel-left" width="150px" style="top:100px;position:absolute"></div>
+        
         
         <div class="panel-right" style="overflow:hidden">
-            <div style="width:150px;height:50px;opacity:0.9;position:fixed;background-color:lightgrey;"> </div>
-            <div style="left:150px;position:fixed;display:flex" class="timeline"></div>
+            <div style="position:fixed;height:50px">
+                <button onclick="chart.setScale('day')">DAY</button>
+                <button onclick="chart.setScale('hour')">HOUR</button>
+            </div>
+            <div style="top:50px;width:150px;height:50px;opacity:0.9;position:fixed;background-color:lightgrey;"> </div>
+            <div style="left:150px;position:fixed;display:flex" class="timeline-top"></div>
+            <div style="top:50px;left:150px;position:fixed;display:flex" class="timeline"></div>
+            <div style="top:100px; position:absolute" class="activities"></div>
            
         </div>
         
@@ -28,15 +35,9 @@
 
     <script lang="javascript">
         
-            for (var x = 0; x < 20; x++){
-                //var activityNode = drawGanttRow();
-                //document.getElementsByClassName("panel-right")[0].appendChild(activityNode);
-            }
-
+        
             document.addEventListener('DOMContentLoaded', function(event) {
                 chart.init(chartData);
-                
-
             })
 
             
