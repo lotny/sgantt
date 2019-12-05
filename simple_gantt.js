@@ -70,9 +70,15 @@ var chart = (function(){
         {
             let hours = ("0" + cellTime.getHours()).slice(-2);
             let minutes = ("0" + cellTime.getMinutes()).slice(-2);
-            drawTimeCell(hours + ":" + minutes);
+            if (timeInCell == 18e5){
+                drawTimeCell(   minutes);
+            } else {
+                drawTimeCell(hours + ":" + minutes);
+            }
+            
+            
             if (x % 2 == 0){
-                drawParentTimeCell();
+                drawParentTimeCell(cellTime);
             }
             cellTime = new Date(cellTime.getTime() + timeInCell);
         }
@@ -153,13 +159,14 @@ var chart = (function(){
     }
 
 
-    drawParentTimeCell = function(){
+    drawParentTimeCell = function(date){
         
+        let parentCellDate = new Date(date);
         let innerText = "";
         if (timeInCell == 18e5){
-            innerText = "hour";
+            innerText = parentCellDate.getHours();
         } else {
-            innerText = "day";
+            innerText = parentCellDate.getDate();
         }
 
         let width = (cellWidth * 2) - 1;
@@ -182,7 +189,7 @@ var chart = (function(){
 
 
     function getDateRange(data){
-        
+
         for (var x = 0; x < data.length; x++){
             if (data[x].activities === undefined) continue;
             for (var y = 0; y < data[x].activities.length; y++){
