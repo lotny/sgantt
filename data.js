@@ -6,14 +6,14 @@ chartData =
         activities : [
             {
             id: "1",
-            name: "1h",
+            name: "Res1 - 1h",
             actualStart: new Date("December 1, 2019 12:00:00"),
             actualEnd:  new Date("December 1, 2019 13:00:00"),
         },{
             id: "2",
-            name: "2h",
+            name: "Res1 - 2h",
             actualStart: new Date("December 1, 2019 16:00:00"),
-            actualEnd: new Date("December 1, 2019 17:00:00"),
+            actualEnd: new Date("December 1, 2019 18:00:00"),
         }
         ]
     },
@@ -22,12 +22,12 @@ chartData =
         activities : [
             {
             id: "activity2a",
-            name: "1h",
-            actualStart: new Date("December 2, 2019 00:00:00"),
-            actualEnd: new Date("December 2, 2019 01:00:00"),
+            name: "Res2 1h",
+            actualStart: new Date("December 1, 2019 01:00:00"),
+            actualEnd: new Date("December 1, 2019 02:00:00"),
         },{
             id: "activity2b",
-            name: "1h",
+            name: "Res2 1h",
             actualStart: new Date("December 1, 2019 13:00:00"),
             actualEnd: new Date("December 1, 2019 14:00:00"),
         }
@@ -121,9 +121,9 @@ chartData =
             actualEnd: new Date("December 1, 2019 20:30:00"),
         },{
             id: "3",
-            name: "12 h ",
+            name: "11 h",
             actualStart: new Date("December 1, 2019 16:30:00"),
-            actualEnd: new Date("December 2, 2019 16:30:00"),
+            actualEnd: new Date("December 2, 2019 15:30:00"),
         }
         ]
     },

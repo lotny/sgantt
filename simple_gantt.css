@@ -1,7 +1,43 @@
 body {
     font-family: Verdana, Geneva, sans-serif; 
     margin:0; 
+    overflow: hidden;
      }
+
+.apr-laflex-container {
+    display:flex;
+    flex-grow:1;
+    flex-direction:row;
+}
+
+.apr-direction-vertical{
+    flex-direction: column;
+}
+.apr-direction-horizontal{
+    flex-direction: row;
+}
+
+.apr-bg-blue {
+    background-color:blue;
+    color:white;
+}
+
+.gnt-root {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    top: 0;
+}
+
+.panel-right {
+    overflow-x:scroll;
+}
+
+.gnt-panel-content {
+    overflow-y:scroll;
+}
+
 
 .row {
     border-width:0 0 2px 0;
@@ -28,7 +64,10 @@ body {
 .row-resource {
     background-color:#0087A3;
     color:#FFF;
-    width:150px;
+    width:149px;
+    border-width:1px 0 0 0;
+    border-style:solid;
+
 }
 
 .row-activity {

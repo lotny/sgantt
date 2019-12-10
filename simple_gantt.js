@@ -2,8 +2,8 @@ var chart = (function(){
 
     var loadedData;
 
-    var startDate = new Date();
-    var endDate = new Date();
+    var startDate = null;
+    var endDate = null;
 
     var scale = 60; // should be value in miliseconds for each 60 pixels
 
@@ -13,19 +13,35 @@ var chart = (function(){
     var leftMargin = 150;
     
 
+
+    var attachScrollEvents = function(){
+        document.getElementsByClassName("panel-right")[0].addEventListener("scroll", onScrollVertical)
+
+            }
+
+    function onScrollVertical(ev){
+        //console.info("scroll detected");
+        var scrollLeft = ev.target.scrollLeft;
+        //console.log(scrollLeft);
+        document.getElementsByClassName("gnt-panel-timeline")[0].scrollLeft = scrollLeft;
+        //console.log(your_div);
+        //your_div.scrollLeft = scrollLeft ;
+
+    }
+
     setScale = function(scale){
         console.log(scale);
         
-        if (scale == "day"){
-            timeInCell = 432e5;
-            redraw();
-        } 
-
-        if (scale == "hour"){
-            timeInCell = 18e5;
-            redraw();
+        switch (scale){
+            case "day":
+                timeInCell = 432e5;
+                break;
+            case "hour":
+                timeInCell = 18e5;
+                break;
         }
-        
+
+        redraw();
     }
 
     redraw = function(){
@@ -102,16 +118,12 @@ var chart = (function(){
     }
 
     drawSingleResource = function(name, numberOfActivities){
-        
         var cell = document.createElement("div");
         cell.setAttribute("style", "height:" + (numberOfActivities + 1 )* 30 + "px;");
         cell.setAttribute("class", "row-resource");
         cell.innerText = name;
         document.getElementsByClassName("panel-left")[0].appendChild(cell);
-
-        
     }
-
 
     destroyActivities = function(){
         var activities = document.getElementsByClassName("row-activity");
@@ -128,34 +140,41 @@ var chart = (function(){
     }
 
     drawActivities = function(activities){
-        for (var x = 0; x < activities.length; x++){
-            drawSingleActivity(activities[x]);
+        var activitiesCount = activities.length
+        var actGroupEl = document.createElement("div");
+        actGroupEl.setAttribute("style", "height:" + (activitiesCount * 50) + "px;margin-left:" + leftMargin);
+
+        for (var x = 0; x < activitiesCount; x++){
+            drawSingleActivity(activities[x], actGroupEl);
         }
+
+        document.getElementsByClassName("activities")[0].appendChild(actGroupEl);
     }
 
-    drawSingleActivity = function(activity){
+    drawSingleActivity = function(activity, parentEl){
         var activityEl = document.createElement("div");
         var actStart = new Date(activity.actualStart);
         var actEnd = new Date(activity.actualEnd);
-        var margin =  leftMargin + (1 + actStart.getHours() - startDate.getHours()) * cellWidth;
+        var margin =  leftMargin +  ((actStart.getHours() - startDate.getHours()) * cellWidth);
 
         var width = 1;
         if ( timeInCell == 432e5){
-            width  =  cellWidth * (actEnd.getDate() - actStart.getDate());
+            width  =  2 * cellWidth * (actEnd.getDate() - actStart.getDate());
         
         } else {
 
-            width  = cellWidth * new Date(actEnd - actStart).getHours(); 
+            width  =  cellWidth * ((actEnd - actStart) / timeInCell); 
         }
         if (width < 1){
             width = 2;
         } 
       
+        activityEl.setAttribute("data-start", actStart);
         activityEl.setAttribute("style", "width:" + width + "px;margin-left:" + margin);
         activityEl.setAttribute("class", "row-activity");
         activityEl.innerText = activity.name;
 
-        document.getElementsByClassName("activities")[0].appendChild(activityEl);
+        parentEl.appendChild(activityEl);
     }
 
 
@@ -198,9 +217,14 @@ var chart = (function(){
                 
             }
         }
+        console.log("start date");
+        console.log(startDate);
     }
 
     function getHigherDate(endDate, actualEnd){
+        if (endDate === null){
+            endDate = actualEnd;
+        }
         if (new Date(actualEnd) > new Date(endDate)){
             return new Date(actualEnd);
         } else {
@@ -209,7 +233,9 @@ var chart = (function(){
     }
 
     function getLowerDate(startDate, actualStart){
-        
+        if (startDate === null){
+            startDate = actualStart;
+        }
         if (new Date(startDate) > new Date(actualStart)){
             return new Date(actualStart);
         } else {
@@ -219,13 +245,15 @@ var chart = (function(){
     
     }
 
-    init = function(data){
+    var init = function(data){
         loadedData = data;
         getDateRange(loadedData);
-        
+
 
         drawTimeLine();
         drawResources();
+
+        attachScrollEvents();
     }
 
     return {
