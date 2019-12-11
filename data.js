@@ -2,169 +2,172 @@ var chartData = new Object();
 chartData =
 [ 
     {
-        name: "Resource 1",
+        name: "C0101",
         activities : [
             {
             id: "1",
-            name: "Res1 - 1h",
+            name: "C0101 1h",
+            status: "started",
             actualStart: new Date("December 1, 2019 12:00:00"),
             actualEnd:  new Date("December 1, 2019 13:00:00"),
         },{
             id: "2",
-            name: "Res1 - 2h",
+            name: "C0101 2h",
             actualStart: new Date("December 1, 2019 16:00:00"),
             actualEnd: new Date("December 1, 2019 18:00:00"),
         }
         ]
     },
     {
-        name: "Resource 2",
+        name: "C0102",
         activities : [
             {
             id: "activity2a",
             name: "Res2 1h",
+            status: "started",
             actualStart: new Date("December 1, 2019 01:00:00"),
             actualEnd: new Date("December 1, 2019 02:00:00"),
         },{
             id: "activity2b",
             name: "Res2 1h",
+            status: "new",
             actualStart: new Date("December 1, 2019 13:00:00"),
             actualEnd: new Date("December 1, 2019 14:00:00"),
         }
         ]
     },
     {
-        name: "Resource 3",
+        name: "C0103",
         activities : []
     },
     {
-        name: "Resource 4",
+        name: "C0104",
         activities : []
     },
     {
-        name: "Resource 5",
+        name: "C0105",
         activities : []
     },
     {
-        name: "Resource 6",
+        name: "C0106",
         activities : []
     },
     {
-        name: "Resource 7",
+        name: "C0107",
         activities : []
     },
     {
-        name: "Resource 8",
+        name: "C0108",
         activities : []
     },
     {
-        name: "Resource 9",
+        name: "C0109",
         activities : []
     },
     {
-        name: "Resource 10",
+        name: "C0201",
         activities : []
     },
     {
-        name: "Resource 11",
+        name: "C0202",
         activities : []
     },
     {
-        name: "Resource 12",
+        name: "C0203",
         activities : []
     },
     {
-        name: "Resource 13",
+        name: "C0204",
         activities : []
     },
     {
-        name: "Resource 14",
+        name: "C0205",
         activities : []
     },
     {
-        name: "Resource 15",
+        name: "C0206",
         activities : []
     },
     {
-        name: "Resource 16",
+        name: "C0207",
         activities : []
     },
     {
-        name: "Resource 17",
+        name: "C0208",
         activities : []
     },
     {
-        name: "Resource 18",
+        name: "C0209",
         activities : []
     },
     {
-        name: "Resource 19",
+        name: "C0301",
         activities : []
     },
     {
-        name: "Resource 20",
+        name: "C0302",
         activities : [
             {
             id: "1",
-            name: "1 h ",
+            name: "C0302 1h ",
             actualStart: new Date("December 1, 2019 15:00:00"),
             actualEnd: new Date("December 1, 2019 16:00:00"),
         },{
             id: "2",
-            name: "2 h ",
+            name: "C0302 2h",
             actualStart: new Date("December 1, 2019 16:30:00"),
             actualEnd: new Date("December 1, 2019 18:30:00"),
         },{
             id: "3",
             name: "4 h ",
-            actualStart: new Date("December 1, 2019 16:30:00"),
+            actualStart: new Date("December 1, 2019 19:00:00"),
             actualEnd: new Date("December 1, 2019 20:30:00"),
         },{
             id: "3",
-            name: "11 h",
-            actualStart: new Date("December 1, 2019 16:30:00"),
-            actualEnd: new Date("December 2, 2019 15:30:00"),
-        }
+            name: "6 h",
+            actualStart: new Date("December 1, 2019 21:00:00"),
+            actualEnd: new Date("December 2, 2019 05:00:00"),
+        }   
         ]
     },
     {
-        name: "Resource 21",
+        name: "C0303",
         activities : []
     },
     {
-        name: "Resource 22",
+        name: "C0304",
         activities : []
     },
     {
-        name: "Resource 23",
+        name: "C0305",
         activities : []
     },
     {
-        name: "Resource 24",
+        name: "C0306",
         activities : []
     },
     {
-        name: "Resource 25",
+        name: "C0307",
         activities : []
     },
     {
-        name: "Resource 26",
+        name: "C0308",
         activities : []
     },
     {
-        name: "Resource 27",
+        name: "C0309",
         activities : []
     },
     {
-        name: "Resource 28",
+        name: "C0401",
         activities : []
     },
     {
-        name: "Resource 29",
+        name: "C0402",
         activities : []
     },
     {    
-        name: "Resource 30",
+        name: "C0403",
         activities : []
     },
 ];

@@ -23,7 +23,7 @@ body {
 }
 
 .gnt-root {
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
     min-height: 100vh;
     height: 100vh;
@@ -64,22 +64,35 @@ body {
 .row-resource {
     background-color:#0087A3;
     color:#FFF;
-    width:149px;
+    width:179px;
     border-width:1px 0 0 0;
     border-style:solid;
 
 }
 
 .row-activity {
-    border-radius: 4px;
-    
-    margin-top: 4px;
+    /*border-radius: 4px;*/
+    height: 50px;
+    /*margin-top: 4px;*/
     /*display:flex;*/
-    background-color: #000;
+
     color:#FFF;
     cursor:pointer;
-
+    background-color:grey;
 }
+
+.row-activity-parent {
+    display:inline-flex;
+}
+
+.row-activity.started {
+    background-color: green;
+}
+
+.row-activity.new {
+    background-color: blue;
+}
+
 .activities {
     z-index:1;
 }

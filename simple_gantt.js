@@ -1,12 +1,9 @@
 var chart = (function(){
 
     var loadedData;
-
     var startDate = null;
     var endDate = null;
-
     var scale = 60; // should be value in miliseconds for each 60 pixels
-
     var cellWidth = 60;
     var timeInCell = 18e5; //should it be miliseconds or just minutes?
 
@@ -29,7 +26,7 @@ var chart = (function(){
 
     }
 
-    setScale = function(scale){
+    var setScale = function(scale){
         console.log(scale);
         
         switch (scale){
@@ -44,7 +41,7 @@ var chart = (function(){
         redraw();
     }
 
-    redraw = function(){
+    var redraw = function(){
         //destroyActivities();
         destroyTimeLine();
         drawTimeLine();
@@ -52,19 +49,19 @@ var chart = (function(){
         drawResources();
     }
 
-    get = function(){
+    var get = function(){
 
     }
 
-    draw = function(){
+    var draw = function(){
 
     }
 
-    drawUpperTimeLine = function(){
+    var drawUpperTimeLine = function(){
 
     }
 
-    drawTimeLine = function(){
+    var drawTimeLine = function(){
         sDate = new Date(startDate);
         sDate.setHours(sDate.getHours() + Math.round(sDate.getMinutes()/60));
         sDate.setMinutes(0);
@@ -79,6 +76,8 @@ var chart = (function(){
         let steps = Math.floor(Math.abs(eDate - sDate) / timeInCell);
         console.log("steps:" + steps + ", time in cell:" + timeInCell);
         
+        //  should be a limit on steps!
+        steps = steps > 100 ? 100 : steps;
         // time of the first cell
         let cellTime = sDate; //new Date("December 1, 2019, 12:30:00");
 
@@ -101,7 +100,7 @@ var chart = (function(){
 
     }
 
-    destroyResources = function(){
+    var destroyResources = function(){
         var activitiesNode = document.getElementsByClassName("activities")[0];
         activitiesNode.innerHTML = "";
         var panelLeftNode = document.getElementsByClassName("panel-left")[0];
@@ -109,7 +108,7 @@ var chart = (function(){
 
     }
 
-    drawResources = function(){
+    var drawResources = function(){
         for (var x = 0; x < chartData.length; x++){
             drawSingleResource(chartData[x].name, chartData[x].activities.length);
             drawActivities(chartData[x].activities);
@@ -117,32 +116,33 @@ var chart = (function(){
 
     }
 
-    drawSingleResource = function(name, numberOfActivities){
+    var drawSingleResource = function(name, numberOfActivities){
         var cell = document.createElement("div");
-        cell.setAttribute("style", "height:" + (numberOfActivities + 1 )* 30 + "px;");
+        let height = numberOfActivities == 0 ? 50 : numberOfActivities * 50;
+        cell.setAttribute("style", "height:" + height + "px;");
         cell.setAttribute("class", "row-resource");
         cell.innerText = name;
         document.getElementsByClassName("panel-left")[0].appendChild(cell);
     }
 
-    destroyActivities = function(){
+    var destroyActivities = function(){
         var activities = document.getElementsByClassName("row-activity");
         //for (var x = 0; x < activities.length; x++){
         //    activities[x].remove();
         //}
     }
 
-    destroyTimeLine = function(){
+    var destroyTimeLine = function(){
         var timeline = document.getElementsByClassName("timeline")[0];
         timeline.innerHTML = "";
         var parentTimeline = document.getElementsByClassName("timeline-top")[0];
         parentTimeline.innerHTML = "";
     }
 
-    drawActivities = function(activities){
+    var drawActivities = function(activities){
         var activitiesCount = activities.length
         var actGroupEl = document.createElement("div");
-        actGroupEl.setAttribute("style", "height:" + (activitiesCount * 50) + "px;margin-left:" + leftMargin);
+        actGroupEl.setAttribute("style", "height:" + (activitiesCount * 50) + "px;");
 
         for (var x = 0; x < activitiesCount; x++){
             drawSingleActivity(activities[x], actGroupEl);
@@ -151,11 +151,17 @@ var chart = (function(){
         document.getElementsByClassName("activities")[0].appendChild(actGroupEl);
     }
 
-    drawSingleActivity = function(activity, parentEl){
+    var drawSingleActivity = function(activity, parentEl){
+        
+        let activityRowEl = document.createElement("div");
+        activityRowEl.setAttribute("class","row-activity-parent")
+        
         var activityEl = document.createElement("div");
         var actStart = new Date(activity.actualStart);
         var actEnd = new Date(activity.actualEnd);
         var margin =  leftMargin +  ((actStart.getHours() - startDate.getHours()) * cellWidth);
+
+   
 
         var width = 1;
         if ( timeInCell == 432e5){
@@ -169,16 +175,21 @@ var chart = (function(){
             width = 2;
         } 
       
+        //var fillerLeftEl = document.createElement("div");
+        //fillerLeftEl.setAttribute("style", "width:" + margin + "px;");
+
         activityEl.setAttribute("data-start", actStart);
-        activityEl.setAttribute("style", "width:" + width + "px;margin-left:" + margin);
-        activityEl.setAttribute("class", "row-activity");
+        activityEl.setAttribute("style", "left:" + margin + "px;" + "width:" + width + "px;");
+        activityEl.setAttribute("class", "row-activity " + activity.status);
         activityEl.innerText = activity.name;
 
+        //activityRowEl.appendChild(fillerLeftEl);
+        //activityRowEl.appendChild(activityEl);
         parentEl.appendChild(activityEl);
     }
 
 
-    drawParentTimeCell = function(date){
+    var drawParentTimeCell = function(date){
         
         let parentCellDate = new Date(date);
         let innerText = "";
@@ -196,7 +207,7 @@ var chart = (function(){
         document.getElementsByClassName("timeline-top")[0].appendChild(cell);
     }
 
-    drawTimeCell = function(timeText){
+    var drawTimeCell = function(timeText){
         let width = 59;
         var cell = document.createElement("div");
         cell.setAttribute("style", "width:" + width + "px");
@@ -252,7 +263,6 @@ var chart = (function(){
 
         drawTimeLine();
         drawResources();
-
         attachScrollEvents();
     }
 
