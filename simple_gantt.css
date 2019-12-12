@@ -59,7 +59,7 @@ body {
     height: 49px;
     /*margin-top: 4px;*/
     /*display:flex;*/
-
+    position:relative;
     color:#FFF;
     cursor:pointer;
     background-color:#005686;
@@ -98,8 +98,7 @@ body {
     height:25px;
     color:black;
     background-color:#E2E4E3;
-    overflow-x:hidden;
-    overflow-y:hidden;
+
 }
 
 .time-cell, .time-cell-top {
@@ -107,13 +106,13 @@ body {
     border-style:solid;
     border-color:#fff;
     border-width:1px 1px 1px 0;
-    height:50px;
+    height:26px;
 }
 
 .time-cell-top {
-    height: 50px;
+    height: 26px;
     text-align: center;
-    text-align:middle;
+
     background-color: #E2E4E3;
 }
 

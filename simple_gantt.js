@@ -19,9 +19,9 @@ var chart = (function(){
     function onScrollVertical(ev){
     
         var scrollTop = ev.target.scrollTop;
-
+        var scrollLeft= ev.target.scrollLeft;
         document.getElementsByClassName("panel-left")[0].scrollTop = scrollTop;
-    
+        document.getElementsByClassName("gnt-panel-timeline")[0].scrollLeft = scrollLeft;
 
     }
 
@@ -61,6 +61,9 @@ var chart = (function(){
     }
 
     var drawTimeLine = function(){
+
+        
+
         sDate = new Date(startDate);
         sDate.setHours(sDate.getHours() + Math.round(sDate.getMinutes()/60));
         sDate.setMinutes(0);
@@ -78,6 +81,12 @@ var chart = (function(){
         //  should be a limit on steps!
         steps = steps > 100 ? 100 : steps;
         // time of the first cell
+
+
+        var timeline = document.getElementsByClassName("timeline")[0];
+        timeline.setAttribute("style", "width: " + (steps * scale) + "px");
+        var timelineTop = document.getElementsByClassName("timeline-top")[0];
+        timelineTop.setAttribute("style", "width: " + (steps * scale) + "px");
         let cellTime = sDate; //new Date("December 1, 2019, 12:30:00");
 
         for (var x = 0; x < steps; x++)
@@ -91,7 +100,7 @@ var chart = (function(){
             }
             
             
-            if (x % 4 == 0){
+            if (x % 2 == 0){
                 drawParentTimeCell(cellTime);
             }
             cellTime = new Date(cellTime.getTime() + timeInCell);
@@ -159,7 +168,7 @@ var chart = (function(){
         var activityEl = document.createElement("div");
         var actStart = new Date(activity.actualStart);
         var actEnd = new Date(activity.actualEnd);
-        var margin =  leftMargin +  ((actStart.getHours() - startDate.getHours()) * cellWidth);
+        var margin =  2 * ((actStart.getHours() - startDate.getHours()) * cellWidth);
 
 
         var width = 1;
@@ -202,7 +211,7 @@ var chart = (function(){
         var cell = document.createElement("div");
         cell.setAttribute("style", "width:" + width);
         cell.setAttribute("class", "time-cell-top");
-        //cell.innerText = innerText;
+        cell.innerText = "";
         document.getElementsByClassName("timeline-top")[0].appendChild(cell);
     }
 

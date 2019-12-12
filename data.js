@@ -8,13 +8,18 @@ chartData =
             id: "1",
             name: "C0101 1h",
             status: "started",
-            actualStart: new Date("December 1, 2019 12:00:00"),
-            actualEnd:  new Date("December 1, 2019 13:00:00"),
+            actualStart: new Date("December 1, 2019 14:00:00"),
+            actualEnd:  new Date("December 1, 2019 15:00:00"),
         },{
             id: "2",
             name: "C0101 2h",
             actualStart: new Date("December 1, 2019 16:00:00"),
             actualEnd: new Date("December 1, 2019 18:00:00"),
+        },{
+            id: "3",
+            name: "C0101 3h",
+            actualStart: new Date("December 1, 2019 19:00:00"),
+            actualEnd: new Date("December 1, 2019 22:00:00"),
         }
         ]
     },
@@ -23,13 +28,13 @@ chartData =
         activities : [
             {
             id: "activity2a",
-            name: "Res2 1h",
+            name: "C0102 2h",
             status: "started",
-            actualStart: new Date("December 1, 2019 01:00:00"),
-            actualEnd: new Date("December 1, 2019 02:00:00"),
+            actualStart: new Date("December 1, 2019 09:00:00"),
+            actualEnd: new Date("December 1, 2019 11:00:00"),
         },{
             id: "activity2b",
-            name: "Res2 1h",
+            name: "C0102 1h",
             status: "new",
             actualStart: new Date("December 1, 2019 13:00:00"),
             actualEnd: new Date("December 1, 2019 14:00:00"),
@@ -53,26 +58,8 @@ chartData =
         name: "C0204",
         activities : []
     },
-    {
-        name: "C0205",
-        activities : []
-    },
-    {
-        name: "C0206",
-        activities : []
-    },
-    {
-        name: "C0207",
-        activities : []
-    },
-    {
-        name: "C0208",
-        activities : []
-    },
-    {
-        name: "C0209",
-        activities : []
-    },
+
+   
     {
         name: "C0301",
         activities : []

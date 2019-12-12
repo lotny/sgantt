@@ -8,9 +8,10 @@
 </head>
 <body>
     
-    <!-- classes with gnt are for -->
-    
-    <div class="apr-laflex-contaienr apr-bg-ds" style="height:60px;font-family:3ds"><span>Production Scheduling</span></div>
+  
+    <!-- NOT GANTT-->
+    <div class="apr-laflex-contaienr apr-bg-ds apr-font-me" style="height:60px;">
+        <span class="apr-la-space-sm">Production Scheduling</span></div>
     <div class="apr-laflex-container apr-mode-touch apr-la-space-me">
         <div class="apr-select ">
             <select type="text">
@@ -33,31 +34,29 @@
     </div>
 
 
-
+    <!-- GANTT container-->
     <div class="apr-la-space-me gnt-root apr-laflex-container apr-direction-vertical">
 
-
         <div class="apr-laflex-container apr-direction-horizontal">
-            <div style="width:179px; height:50px"></div>
-        
-        
+            <div class="apr-bg-gray-outline" style="min-width:178px; height:50px"></div>
 
-        <div style="" class="gnt-panel-timeline apr-bg-blue">
+
+        <div style="overflow:hidden;" class="gnt-panel-timeline ">
             <div class="timeline-top"></div>
             <div class="timeline"></div>
         </div>
         </div>
 
         <div class="gnt-panel-content apr-laflex-container " style="overflow:hidden;">
-            <div class="apr-laflex-itemshrink">
-            <div class="panel-left apr-laflex-item apr-laflex-container apr-direction-vertical">
+            <div style="" class="apr-laflex-itemshrink">
+            <div style="overflow:hidden;" class="panel-left apr-laflex-item apr-laflex-container apr-direction-vertical">
                 </div>
 
             </div>
             <!-- panel with vertical and horizontal scroll-->
            <div class="apr-laflex-item">
             <div class="panel-right apr-la-fillabsolute" style="overflow:auto;">
-                <div class="activities"></div> 
+                <div class="activities" style="height:100%;"></div> 
             </div>
         </div>
         </div>
