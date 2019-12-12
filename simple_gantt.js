@@ -8,7 +8,7 @@ var chart = (function(){
     var timeInCell = 18e5; //should it be miliseconds or just minutes?
 
     var leftMargin = 150;
-    
+    var totalNumberOfRows = 0;
 
 
     var attachScrollEvents = function(){
@@ -78,6 +78,7 @@ var chart = (function(){
         let steps = Math.floor(Math.abs(eDate - sDate) / timeInCell);
         console.log("steps:" + steps + ", time in cell:" + timeInCell);
         
+    
         //  should be a limit on steps!
         steps = steps > 100 ? 100 : steps;
         // time of the first cell
@@ -122,6 +123,10 @@ var chart = (function(){
             drawActivities(chartData[x].activities);
         }
 
+        document.getElementsByClassName("activities")[0].setAttribute("style", "height:" + ((totalNumberOfRows + 1) * 50) + "px;")
+
+
+
     }
 
     var drawSingleResource = function(name, numberOfActivities){
@@ -131,6 +136,7 @@ var chart = (function(){
         cell.setAttribute("class", "row-resource");
         cell.innerText = name;
         document.getElementsByClassName("panel-left")[0].appendChild(cell);
+        
     }
 
     var destroyActivities = function(){
@@ -149,15 +155,24 @@ var chart = (function(){
 
     var drawActivities = function(activities){
         var activitiesCount = activities.length;
-        var height = activities.length == 0 ? 50 : activities.length * 50;
+        var height = activitiesCount == 0 ? 50 : activitiesCount * 50;
         var actGroupEl = document.createElement("div");
         actGroupEl.setAttribute("style", "height:" + height + "px;");
+
+        if (activitiesCount == 0){
+            totalNumberOfRows += 1;
+        } else {
+            totalNumberOfRows +=  activitiesCount;
+        }
+         
 
         for (var x = 0; x < activitiesCount; x++){
             drawSingleActivity(activities[x], actGroupEl);
         }
 
         document.getElementsByClassName("activities")[0].appendChild(actGroupEl);
+
+        
     }
 
     var drawSingleActivity = function(activity, parentEl){
@@ -207,7 +222,7 @@ var chart = (function(){
             innerText = parentCellDate.getDate();
         }
 
-        let width = (cellWidth * 2) - 2;
+        let width = (cellWidth * 2) ;
         var cell = document.createElement("div");
         cell.setAttribute("style", "width:" + width);
         cell.setAttribute("class", "time-cell-top");
@@ -216,7 +231,7 @@ var chart = (function(){
     }
 
     var drawTimeCell = function(timeText){
-        let width = 59;
+        let width = cellWidth;
         var cell = document.createElement("div");
         cell.setAttribute("style", "width:" + width + "px");
         cell.setAttribute("class", "time-cell");
