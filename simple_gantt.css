@@ -4,23 +4,6 @@ body {
     overflow: hidden;
      }
 
-.apr-laflex-container {
-    display:flex;
-    flex-grow:1;
-    flex-direction:row;
-}
-
-.apr-direction-vertical{
-    flex-direction: column;
-}
-.apr-direction-horizontal{
-    flex-direction: row;
-}
-
-.apr-bg-blue {
-    background-color:blue;
-    color:white;
-}
 
 .gnt-root {
     /*position: absolute;*/
@@ -62,23 +45,27 @@ body {
 }
 
 .row-resource {
-    background-color:#0087A3;
-    color:#FFF;
+    background-color:#E2E4E3;
+    color:#000;
     width:179px;
     border-width:1px 0 0 0;
     border-style:solid;
+    border-color:#fff;
 
 }
 
 .row-activity {
     /*border-radius: 4px;*/
-    height: 50px;
+    height: 49px;
     /*margin-top: 4px;*/
     /*display:flex;*/
 
     color:#FFF;
     cursor:pointer;
-    background-color:grey;
+    background-color:#005686;
+    border-color: #fff;
+    border-width:1px 0 0 0;
+    border-style: solid;
 }
 
 .row-activity-parent {
@@ -86,11 +73,11 @@ body {
 }
 
 .row-activity.started {
-    background-color: green;
+    background-color: #57B847;
 }
 
 .row-activity.new {
-    background-color: blue;
+    background-color: #005686;
 }
 
 .activities {
@@ -99,17 +86,18 @@ body {
 
 .timeline {
     z-index:5;
-    height: 50px;
-    background-color:#B4B6BA;
+    height: 25px;
+    color:black;
+    background-color:#E2E4E3;
     overflow-x:hidden;
     overflow-y:hidden;
     
 }
 .timeline-top {
     z-index:5;
-    height:50px;
-  
-    background-color:lightgrey;
+    height:25px;
+    color:black;
+    background-color:#E2E4E3;
     overflow-x:hidden;
     overflow-y:hidden;
 }
@@ -117,8 +105,8 @@ body {
 .time-cell, .time-cell-top {
     display:inline-block;
     border-style:solid;
-    border-color:black;
-    border-width:0 1px 0 0;
+    border-color:#fff;
+    border-width:1px 1px 1px 0;
     height:50px;
 }
 
@@ -126,6 +114,6 @@ body {
     height: 50px;
     text-align: center;
     text-align:middle;
-    background-color: lightgrey;
+    background-color: #E2E4E3;
 }
 

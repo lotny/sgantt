@@ -4,47 +4,65 @@
 
     <script type="text/javascript" src="simple_gantt.js"></script>
     <link rel="stylesheet" href="simple_gantt.css"></ref>
+    <link rel="stylesheet" href="apr.css"></ref>
 </head>
 <body>
     
     <!-- classes with gnt are for -->
-   
-    <div class="apr-laflex-container">some additional stuff</div>
-    <div class="gnt-root apr-laflex-container apr-direction-vertical">
+    
+    <div class="apr-laflex-contaienr apr-bg-ds" style="height:60px;font-family:3ds"><span>Production Scheduling</span></div>
+    <div class="apr-laflex-container apr-mode-touch apr-la-space-me">
+        <div class="apr-select ">
+            <select type="text">
+                <option>hour</option>
+                <option>day</option>
+            </select>
+        </div>
+        <div class="apr-select ">
+                <select type="text">
+                    <option>BUL01</option>
+                    <option>CUR01</option>
+                </select>
+        </div>
+    </div>
+
+    <div>
 
 
-        <div style="height:100px; width:100%;" class="gnt-panel-timeline apr-bg-blue">
+
+    </div>
+
+
+
+    <div class="apr-la-space-me gnt-root apr-laflex-container apr-direction-vertical">
+
+
+        <div class="apr-laflex-container apr-direction-horizontal">
+            <div style="width:179px; height:50px"></div>
+        
+        
+
+        <div style="" class="gnt-panel-timeline apr-bg-blue">
             <div class="timeline-top"></div>
             <div class="timeline"></div>
         </div>
+        </div>
 
-        <div  class="gnt-panel-content apr-laflex-container">
-            <div class="panel-left"></div>
-            <div class="panel-right">
+        <div class="gnt-panel-content apr-laflex-container " style="overflow:hidden;">
+            <div class="apr-laflex-itemshrink">
+            <div class="panel-left apr-laflex-item apr-laflex-container apr-direction-vertical">
+                </div>
+
+            </div>
+            <!-- panel with vertical and horizontal scroll-->
+           <div class="apr-laflex-item">
+            <div class="panel-right apr-la-fillabsolute" style="overflow:auto;">
                 <div class="activities"></div> 
-
-
             </div>
+        </div>
         </div>
 
 
-        <!-- panel with resources 
-        <div class="panel-left" width="150px" style="top:100px;position:absolute"></div>
-        
-        
-        <div class="panel-right" style="overflow:hidden">
-            <div style="display:flex;width:140px;background-color:white;;height:100px">
-                <button style="display:flex;flex-shrink:1" onclick="chart.setScale('day')">DAY</button>
-                <button style="display:flex;flex-shrink:1" onclick="chart.setScale('hour')">HOUR</button>
-            </div>
-           
-            <div style="left:150px;position:fixed;" class="timeline-top"></div>
-            <div style="top:50px;left:150px;position:fixed;" class="timeline"></div>
-            <div style="top:100px; position:absolute" class="activities"></div>
-           
-        </div>
-        
-        -->
     </div>
 
     

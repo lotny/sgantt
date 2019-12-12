@@ -17,12 +17,11 @@ var chart = (function(){
             }
 
     function onScrollVertical(ev){
-        //console.info("scroll detected");
-        var scrollLeft = ev.target.scrollLeft;
-        //console.log(scrollLeft);
-        document.getElementsByClassName("gnt-panel-timeline")[0].scrollLeft = scrollLeft;
-        //console.log(your_div);
-        //your_div.scrollLeft = scrollLeft ;
+    
+        var scrollTop = ev.target.scrollTop;
+
+        document.getElementsByClassName("panel-left")[0].scrollTop = scrollTop;
+    
 
     }
 
@@ -86,13 +85,13 @@ var chart = (function(){
             let hours = ("0" + cellTime.getHours()).slice(-2);
             let minutes = ("0" + cellTime.getMinutes()).slice(-2);
             if (timeInCell == 18e5){
-                drawTimeCell(   minutes);
+                drawTimeCell( hours + ":" +  minutes);
             } else {
                 drawTimeCell(hours + ":" + minutes);
             }
             
             
-            if (x % 2 == 0){
+            if (x % 4 == 0){
                 drawParentTimeCell(cellTime);
             }
             cellTime = new Date(cellTime.getTime() + timeInCell);
@@ -118,7 +117,7 @@ var chart = (function(){
 
     var drawSingleResource = function(name, numberOfActivities){
         var cell = document.createElement("div");
-        let height = numberOfActivities == 0 ? 50 : numberOfActivities * 50;
+        let height = numberOfActivities == 0  ? 50 : numberOfActivities * 50;
         cell.setAttribute("style", "height:" + height + "px;");
         cell.setAttribute("class", "row-resource");
         cell.innerText = name;
@@ -140,9 +139,10 @@ var chart = (function(){
     }
 
     var drawActivities = function(activities){
-        var activitiesCount = activities.length
+        var activitiesCount = activities.length;
+        var height = activities.length == 0 ? 50 : activities.length * 50;
         var actGroupEl = document.createElement("div");
-        actGroupEl.setAttribute("style", "height:" + (activitiesCount * 50) + "px;");
+        actGroupEl.setAttribute("style", "height:" + height + "px;");
 
         for (var x = 0; x < activitiesCount; x++){
             drawSingleActivity(activities[x], actGroupEl);
@@ -161,7 +161,6 @@ var chart = (function(){
         var actEnd = new Date(activity.actualEnd);
         var margin =  leftMargin +  ((actStart.getHours() - startDate.getHours()) * cellWidth);
 
-   
 
         var width = 1;
         if ( timeInCell == 432e5){
@@ -199,11 +198,11 @@ var chart = (function(){
             innerText = parentCellDate.getDate();
         }
 
-        let width = (cellWidth * 2) - 1;
+        let width = (cellWidth * 2) - 2;
         var cell = document.createElement("div");
         cell.setAttribute("style", "width:" + width);
         cell.setAttribute("class", "time-cell-top");
-        cell.innerText = innerText;
+        //cell.innerText = innerText;
         document.getElementsByClassName("timeline-top")[0].appendChild(cell);
     }
 

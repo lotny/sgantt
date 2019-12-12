@@ -36,34 +36,7 @@ chartData =
         }
         ]
     },
-    {
-        name: "C0103",
-        activities : []
-    },
-    {
-        name: "C0104",
-        activities : []
-    },
-    {
-        name: "C0105",
-        activities : []
-    },
-    {
-        name: "C0106",
-        activities : []
-    },
-    {
-        name: "C0107",
-        activities : []
-    },
-    {
-        name: "C0108",
-        activities : []
-    },
-    {
-        name: "C0109",
-        activities : []
-    },
+  
     {
         name: "C0201",
         activities : []
@@ -130,44 +103,5 @@ chartData =
         }   
         ]
     },
-    {
-        name: "C0303",
-        activities : []
-    },
-    {
-        name: "C0304",
-        activities : []
-    },
-    {
-        name: "C0305",
-        activities : []
-    },
-    {
-        name: "C0306",
-        activities : []
-    },
-    {
-        name: "C0307",
-        activities : []
-    },
-    {
-        name: "C0308",
-        activities : []
-    },
-    {
-        name: "C0309",
-        activities : []
-    },
-    {
-        name: "C0401",
-        activities : []
-    },
-    {
-        name: "C0402",
-        activities : []
-    },
-    {    
-        name: "C0403",
-        activities : []
-    },
+   
 ];
